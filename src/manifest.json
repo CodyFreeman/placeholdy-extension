@@ -1,0 +1,30 @@
+{
+  "manifest_version": 2,
+  "name": "Placeholdy.com Extension",
+  "short_name": "Placeholdy",
+  "version": "0.0.1",
+  "description": "web extensions with webpack",
+  "permissions": ["storage", "tabs", "webRequest", "webRequestBlocking"],
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["assets/browser-polyfill.js", "js/content.js"]
+    }
+  ],
+  "background": {
+    "scripts": ["assets/browser-polyfill.js", "js/background.js"],
+    "persistent": true
+  },
+  "options_ui": {
+    "page": "./pages/options.html"
+  },
+  "browser_action": {
+    "default_title": "web extension popup tooltip",
+    "default_popup": "./pages/popup.html",
+    "browser_style": true,
+    "default_icon": {
+      "16": "./assets/images/icon-16.png",
+      "32": "./assets/images/icon-32.png"
+    }
+  }
+}
