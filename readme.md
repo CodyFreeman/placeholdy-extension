@@ -4,6 +4,8 @@ This extension plans to intercept requests to [placeholdy.com](https://placehold
 
 **NB!** This project is not in a working state, has no promise of completion, maintenance nor continued availability of the codebase publicly: **Use for inspiration only!**
 
+To get an overview of the project, please see [the design document for the MVP](./docs/design-document.md)
+
 ## Features
 
 This list of features are either considered or planned: None of them are done.
