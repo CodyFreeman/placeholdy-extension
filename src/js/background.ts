@@ -13,15 +13,16 @@ function requestController(port: any, message: MessageInterface, sender: any) {
 
   switch (message.type) {
     case "TEXT_REQUEST":
-      const words = new LoremIpsumGenerator(new LoremIpsum()).generate(20);
-      const responseMessage: MessageInterface = {
+      const words = new LoremIpsumGenerator(new LoremIpsum()).generate(670);
+      console.debug(words);
+      const requestMessage: MessageInterface = {
         origin: "bg",
         type: "TEXT_RESPONSE",
         payload: {
           text: words,
         },
       };
-      port.postMessage(responseMessage);
+      port.postMessage(requestMessage);
       break;
   }
 }

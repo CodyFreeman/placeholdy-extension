@@ -1,3 +1,3 @@
 export interface LoremIpsumGeneratorInterface {
-  generate(words: number): string;
+  generate(maxWords: number): string;
 }
