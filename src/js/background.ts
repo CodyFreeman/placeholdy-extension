@@ -1,5 +1,6 @@
 import { MessageInterface } from "./interfaces/MessageInterface";
-import { TextGenerator } from "./services/text-generator/TextGenerator";
+import { LoremIpsumGenerator } from "./generators/lorem-ipsum/LoremIpsumGenerator";
+import { LoremIpsum } from "lorem-ipsum";
 
 function requestController(port: any, message: MessageInterface, sender: any) {
   //LOGGER EXAMPLE
@@ -11,16 +12,17 @@ function requestController(port: any, message: MessageInterface, sender: any) {
   }
 
   switch (message.type) {
-    case "TEST_REQUEST":
-      const words = new TextGenerator().generate(20);
-      const responseMessage: MessageInterface = {
+    case "TEXT_REQUEST":
+      const words = new LoremIpsumGenerator(new LoremIpsum()).generate(670);
+      console.debug(words);
+      const requestMessage: MessageInterface = {
         origin: "bg",
-        type: "TEST_RESPONSE",
+        type: "TEXT_RESPONSE",
         payload: {
           text: words,
         },
       };
-      port.postMessage(responseMessage);
+      port.postMessage(requestMessage);
       break;
   }
 }

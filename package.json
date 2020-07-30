@@ -32,5 +32,8 @@
     "webpack-dev-server": "^3.11.0",
     "webpack-extension-reloader": "^1.1.4",
     "webpack-merge": "^5.0.9"
+  },
+  "dependencies": {
+    "lorem-ipsum": "^2.0.3"
   }
 }

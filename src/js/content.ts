@@ -37,7 +37,7 @@ init()
       type: "ID",
       payload: Math.ceil(Math.random() * 42),
     });
-    port.postMessage({ origin: tabId, type: "LOAD" });
+    port.postMessage({ origin: tabId, type: "TEXT_REQUEST" }); // TODO: remove
   })
   .catch((e) => {
     console.log("--- ERROR CAUGHT ---");
