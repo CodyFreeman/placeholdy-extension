@@ -4,7 +4,13 @@
   "short_name": "Placeholdy",
   "version": "0.0.1",
   "description": "web extensions with webpack",
-  "permissions": ["storage", "tabs", "webRequest", "webRequestBlocking"],
+  "permissions": [
+    "storage",
+    "tabs",
+    "webRequest",
+    "webRequestBlocking",
+    "debugger"
+  ],
   "content_scripts": [
     {
       "matches": ["http://*/*", "https://*/*"],

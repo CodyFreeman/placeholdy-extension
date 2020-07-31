@@ -29,11 +29,33 @@ function requestController(port: any, message: MessageInterface, sender: any) {
 
 /* BOOTSTRAPPING */
 
+const tabIds: number[] = [];
 // Listens for single messages sent (for now just ID call)
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   switch (request.type) {
     case "ID":
-      console.log(`TAB ID: ${sender.tab?.id}`);
+      const tabId = sender.tab?.id;
+      if (!tabId) {
+        console.error("tab id not received");
+        return;
+      }
+      tabIds.push(tabId);
+
+      console.log(`TAB ID: ${tabId}`);
+
+      const x = chrome.debugger.attach({ tabId }, "1.3", () => {
+        chrome.debugger.sendCommand(
+          { tabId },
+          "Network.setRequestInterception",
+          { enabled: true, patterns: [{ urlPattern: "*.js" }] }
+        );
+        chrome.debugger.onEvent.addListener((source, method, params: any) => {
+          console.log("INTERCEPTION: ", JSON.stringify(params.request));
+          params.request.continue();
+        });
+        console.log("x: ", x);
+      });
+
       sendResponse({
         origin: "bg",
         type: "ID_RESPONSE",
