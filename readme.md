@@ -1,10 +1,10 @@
-# Placeholdy Browser Extension
+# DISCONTINUED Placeholdy Browser Extension
 
 This extension plans to intercept requests to [placeholdy.com](https://placeholdy.com) and generates a response locally.
 
-**NB!** This project is not in a working state, has no promise of completion, maintenance nor continued availability of the codebase publicly: **Use for inspiration only!**
+**NB! DISCONTINUED:** This project is discontinued due to difficulty in finding a cross browser way to intercept requests and server a locally generated response. I believe the best bet would be hijacking `XMLHttpRequest` and everything related. However the project fails the effort/reward ratio I'm comfortable with for freeware. If interested, this show the issue fairly well: [chrome bug issue](https://bugs.chromium.org/p/chromium/issues/detail?id=104058)
 
-To get an overview of the project, please see [the design document for the MVP](./docs/design-document.md)
+To get an overview of the project concept, please see [the design document for the MVP](./docs/design-document.md)
 
 ## Features
 
